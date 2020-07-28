@@ -31,6 +31,14 @@ const quotations =
  * `getRandomQuote` function
 ***/
 
+function getRandomQuote() {
+  for (let i = 0; i < quotations.length; i++) {
+    let randNum = Math.floor(Math.random() * quotations.length);
+    randNum = quotations[i];
+    return randNum;
+  }
+}
+console.log(getRandomQuote());
 
 
 /***

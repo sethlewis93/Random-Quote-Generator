@@ -57,25 +57,22 @@ function getRandomQuote() {
 /***
  * `printQuote` function
  ***/
+let htmlString;
+
 function printQuote() {
   let randQuote = getRandomQuote();
-  let htmlString;
+  htmlString = `<p class="quote">${randQuote.quote}.
+    <p class="source">${randQuote.source}.`;
   if (randQuote.citation) {
-    htmlString = `
-    <p class="quote">${randQuote.quote}.</p>
-    <p class="source">${randQuote.source}.</p> 
-    <span class="citation">${randQuote.citation}.`; // directions a little unclear about closing p tag
+    htmlString += `<span class="citation">${randQuote.citation}.</p>`; // directions a little unclear about closing p tag
   }
   if (randQuote.year) {
-    htmlString = `
-      <p class="quote">${randQuote.quote}.</p>
-      <p class="source">${randQuote.source}.</p>
-      <span class="year">${randQuote.year}.`; // directions a little unclear about closing p tag
+    htmlString += `<span class="year">${randQuote.year}.</p>`; // directions a little unclear about closing p tag
   }
   return htmlString;
 }
 console.log(printQuote());
-document.getElementById("quote-box").innerHTML = printQuote();
+document.getElementById("quote-box").innerHTML = htmlString;
 
 /***
  * click event listener for the print quote button

@@ -11,7 +11,7 @@ project 1 - A Random Quote Generator
  * `quotes` array
  ***/
 const quotations = [
-  // commas are making it into the HTML
+  // commas are making it into the HTML & periods are making it into "source"
   {
     quote: "Too many pieces of music finish too long after the end.",
     source: "Stravinsky, Igor",
@@ -26,7 +26,7 @@ const quotations = [
     quote:
       "Women are always carried about like corks upon the waves of masculine desires.",
     source: "Mrs. Charmond",
-    citation: "The Woodlanders: Thomas Hardy", // Be sure to lookup correct citation format/punctuation
+    citation: "The Woodlanders", // Be sure to lookup correct citation format/punctuation
   },
   {
     quote:

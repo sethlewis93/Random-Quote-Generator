@@ -10,33 +10,66 @@ project 1 - A Random Quote Generator
 // LIBRARY OF QUOTATIONS
 const quotations = [
   {
-    quote: "Too many pieces of music finish too long after the end.",
-    source: "Stravinsky, Igor",
-    citation: "Byrne, Robert: The 2,548 Best Things Anybody Ever Said"
+    quote: 'Too many pieces of music finish too long after the end.',
+    source: 'Igor Stravinsky',
+    citation: 'Robert Byrne: The 2,548 Best Things Anybody Ever Said', 
+    tag: 'Musicians'
   },
   {
-    quote: "Behind every beautiful thing there is some kind of pain.",
-    source: "Dylan, Bob",
-    year: 1973
-  },
-  {
-    quote:
-      "Women are always carried about like corks upon the waves of masculine desires.",
-    source: "Mrs. Charmond",
-    citation: "The Woodlanders"
+    quote: 'Behind every beautiful thing there is some kind of pain.',
+    source: 'Bob Dylan',
+    year: 1973, 
+    tag: 'Musicians'
   },
   {
     quote:
-      "When the power of love overcomes the love of power, the world will know peace.",
-    source: "Jimi Hendrix",
-    year: 1968
+      'Women are always carried about like corks upon the waves of masculine desires.',
+    source: 'Mrs. Charmond',
+    citation: 'The Woodlanders', 
+    tag: 'Classic Lit'
   },
   {
-    quote:
-      "Optimism is an occupational hazard of programming; feedback is the treatment.",
-    source: "Kent Beck",
-    citation: "Extreme Programming Pxplained: Embrace Change"
+    quote: 'When the power of love overcomes the love of power, the world will know peace.',
+    source: 'Jimi Hendrix',
+    year: 1968, 
+    tag: 'Musicians'
   },
+  {
+    quote: 'Optimism is an occupational hazard of programming; feedback is the treatment.',
+    source: 'Kent Beck',
+    citation: 'Extreme Programming Pxplained: Embrace Change', 
+    tag: 'Programmers'
+  },
+  {
+    quote: 'The whole point of being a serious musician is to avoid verbalization whenever you can.', 
+    source: 'Virgil Thomson',
+    citation: 'Selected Letters',
+    tag: 'Musicians'
+  }, 
+  {
+    quote: 'I studied the humanities to understand logic and programming, and I studied the sciences to understand language and literature.', 
+    source: 'David Auerbach', 
+    citation: 'Bitwise: A Life in Code', 
+    tag: 'Programmers'
+  }, 
+  {
+    quote: '[Gabriel] had been held to her by a beautiful thread which it pained him to spoil by breaking, rather than by a chain he could not break.',
+    source: 'Thomas Hardy', 
+    citation: 'Far from the Madding Crowd', 
+    tag: 'Classic Lit'
+  }, 
+  {
+    quote: 'The best way to predict the future is to invent it.', 
+    source: 'Alan Kay', 
+    citation: 'Meeting at Xerox PARC, circa 1982', 
+    tag: 'Programmers'
+  }, 
+  {
+    quote: 'In all toil there is profit, but mere talk leads to sheer loss.',
+    citation: 'Proverbs 14:23',
+    source: 'King Solomon', 
+    tag: 'Classic Lit'
+  }
 ];
 
 // Returns a random object from the quotations array of objects
@@ -46,27 +79,37 @@ function getRandomQuote() {
   return randNum;
 }; 
 
+function randomRGB(value) {
+  const color = `rgb${value()}, ${value()}, ${value()}`;
+  return color;
+}
+
 /* 
 Declare htmlString variable which will interpolate the quote object properties
 Calls getRandomQuote function, assigns it to a variable to be interpolated by htmlString
 If the quote object has a citation, span with "citation" class is concatenated onto the string
 If the quote object has a year, span with "year" class is concatenated onto the string
-
 printQuote function then updates the document id "quote-box" with the string after conditionals tested
 */
 let htmlString;
 function printQuote() {
   let randQuote = getRandomQuote();
-  htmlString = `<p class="quote">${randQuote.quote}
-    <p class="source">${randQuote.source}`;
+  htmlString = `<p class="quote">${randQuote.quote}<p class="source">${randQuote.source}
+  <body style="background-color:${randomRGB(getRandomQuote)}></body>`;//this ends up removing italics from the "citation" class somehow...
   if (randQuote.citation) {
     htmlString += `<span class="citation">${randQuote.citation}</p>`; 
   }
   if (randQuote.year) {
     htmlString += `<span class="year">${randQuote.year}</p>`; 
   }
+  if (randQuote.tag) {
+    htmlString += `<span class="tag">${randQuote.tag}</p>`; 
+  }
   document.getElementById("quote-box").innerHTML = htmlString;
 };
+
+// Refreshes the quotes every 8 seconds
+const interval = setInterval(printQuote, 8000)
 
 /***
  * click event listener for the print quote button

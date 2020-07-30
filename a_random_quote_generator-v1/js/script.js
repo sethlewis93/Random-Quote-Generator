@@ -7,72 +7,66 @@ project 1 - A Random Quote Generator
 // Check the "Project Resources" section of the project instructions
 // Reach out in your Slack community - https://treehouse-fsjs-102.slack.com/app_redirect?channel=chit-chat
 
-/***
- * `quotes` array
- ***/
+// LIBRARY OF QUOTATIONS
 const quotations = [
-  // commas are making it into the HTML & periods are making it into "source"
   {
     quote: "Too many pieces of music finish too long after the end.",
     source: "Stravinsky, Igor",
-    citation: "Byrne, Robert: The 2,548 Best Things Anybody Ever Said",
+    citation: "Byrne, Robert: The 2,548 Best Things Anybody Ever Said"
   },
   {
     quote: "Behind every beautiful thing there is some kind of pain.",
     source: "Dylan, Bob",
-    year: 1973,
+    year: 1973
   },
   {
     quote:
       "Women are always carried about like corks upon the waves of masculine desires.",
     source: "Mrs. Charmond",
-    citation: "The Woodlanders", // Be sure to lookup correct citation format/punctuation
+    citation: "The Woodlanders"
   },
   {
     quote:
       "When the power of love overcomes the love of power, the world will know peace.",
     source: "Jimi Hendrix",
-    year: 1968,
+    year: 1968
   },
   {
     quote:
       "Optimism is an occupational hazard of programming; feedback is the treatment.",
     source: "Kent Beck",
-    citation: "Extreme Programming Pxplained: Embrace Change",
+    citation: "Extreme Programming Pxplained: Embrace Change"
   },
 ];
 
-/***
- * `getRandomQuote` function
- ***/
-
+// Returns a random object from the quotations array of objects
 function getRandomQuote() {
-  for (let i = 0; i < quotations.length; i++) {
-    let randNum = Math.floor(Math.random() * quotations.length);
-    randNum = quotations[randNum];
-    return randNum;
-  }
-}
+  let randNum = Math.floor(Math.random() * quotations.length);
+  randNum = quotations[randNum];
+  return randNum;
+}; 
 
-/***
- * `printQuote` function
- ***/
+/* 
+Declare htmlString variable which will interpolate the quote object properties
+Calls getRandomQuote function, assigns it to a variable to be interpolated by htmlString
+If the quote object has a citation, span with "citation" class is concatenated onto the string
+If the quote object has a year, span with "year" class is concatenated onto the string
+
+printQuote function then updates the document id "quote-box" with the string after conditionals tested
+*/
 let htmlString;
-
 function printQuote() {
   let randQuote = getRandomQuote();
-  htmlString = `<p class="quote">${randQuote.quote}.
-    <p class="source">${randQuote.source}.`;
+  htmlString = `<p class="quote">${randQuote.quote}
+    <p class="source">${randQuote.source}`;
   if (randQuote.citation) {
-    htmlString += `<span class="citation">${randQuote.citation}.</p>`; // directions a little unclear about closing p tag
+    htmlString += `<span class="citation">${randQuote.citation}</p>`; 
   }
   if (randQuote.year) {
-    htmlString += `<span class="year">${randQuote.year}.</p>`; // directions a little unclear about closing p tag
+    htmlString += `<span class="year">${randQuote.year}</p>`; 
   }
-  return htmlString;
-}
-console.log(printQuote());
-document.getElementById("quote-box").innerHTML = htmlString;
+  document.getElementById("quote-box").innerHTML = htmlString;
+};
 
 /***
  * click event listener for the print quote button

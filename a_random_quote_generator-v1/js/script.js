@@ -79,10 +79,12 @@ function getRandomQuote() {
   return randNum;
 }; 
 
-function randomRGB(value) {
-  const color = `rgb${value()}, ${value()}, ${value()}`;
+const randomValue = () => Math.floor(Math.random() * 256);
+
+function randomRGB() {
+  const color = `rgb(${randomValue()}, ${randomValue()}, ${randomValue()})`;
   return color;
-}
+}; // code obtained from Guil's "Refactor Code Challenge"
 
 /* 
 Declare htmlString variable which will interpolate the quote object properties
@@ -94,8 +96,7 @@ printQuote function then updates the document id "quote-box" with the string aft
 let htmlString;
 function printQuote() {
   let randQuote = getRandomQuote();
-  htmlString = `<div id="quote-box" class="quote-box"><p class="quote">${randQuote.quote}<p class="source"><span>${randQuote.source}`
-  // <body style="background-color:${randomRGB(getRandomQuote)}></body>`;//this ends up removing italics from the "citation" class somehow...
+  htmlString = `<div id="quote-box" class="quote-box"><p class="quote">${randQuote.quote}<p class="source"><span>${randQuote.source}`;
   if (randQuote.citation) {
     htmlString += `<span class="citation">${randQuote.citation}</span>`; 
   }
@@ -103,13 +104,14 @@ function printQuote() {
     htmlString += `<span class="year">${randQuote.year}</span>`; 
   }
   if (randQuote.tag) {
-    htmlString += `<span class="tag">${randQuote.tag}</span></p>`; 
+    htmlString += `<span class="tag">${randQuote.tag}</span></p>`;
   }
   document.getElementById("quote-box").innerHTML = htmlString;
+  document.body.style.backgroundColor = randomRGB(); // code obtained from W3C schools
 };
 
 // Refreshes the quotes every 10 seconds
-const interval = setInterval(printQuote, 10000)
+const interval = setInterval(printQuote, 10000);
 
 /***
  * click event listener for the print quote button

@@ -94,22 +94,22 @@ printQuote function then updates the document id "quote-box" with the string aft
 let htmlString;
 function printQuote() {
   let randQuote = getRandomQuote();
-  htmlString = `<p class="quote">${randQuote.quote}<p class="source">${randQuote.source}
-  <body style="background-color:${randomRGB(getRandomQuote)}></body>`;//this ends up removing italics from the "citation" class somehow...
+  htmlString = `<div id="quote-box" class="quote-box"><p class="quote">${randQuote.quote}<p class="source"><span>${randQuote.source}`
+  // <body style="background-color:${randomRGB(getRandomQuote)}></body>`;//this ends up removing italics from the "citation" class somehow...
   if (randQuote.citation) {
-    htmlString += `<span class="citation">${randQuote.citation}</p>`; 
+    htmlString += `<span class="citation">${randQuote.citation}</span>`; 
   }
   if (randQuote.year) {
-    htmlString += `<span class="year">${randQuote.year}</p>`; 
+    htmlString += `<span class="year">${randQuote.year}</span>`; 
   }
   if (randQuote.tag) {
-    htmlString += `<span class="tag">${randQuote.tag}</p>`; 
+    htmlString += `<span class="tag">${randQuote.tag}</span></p>`; 
   }
   document.getElementById("quote-box").innerHTML = htmlString;
 };
 
-// Refreshes the quotes every 8 seconds
-const interval = setInterval(printQuote, 8000)
+// Refreshes the quotes every 10 seconds
+const interval = setInterval(printQuote, 10000)
 
 /***
  * click event listener for the print quote button

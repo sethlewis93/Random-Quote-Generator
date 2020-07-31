@@ -5,7 +5,6 @@ const quotations = [
       quote: 'Too many pieces of music finish long after the end.',
       source: 'Igor Stravinsky',
       citation: 'Robert Byrne: The 2,548 Best Things Anybody Ever Said',
-      year: '', 
       tag: 'Musicians'
     },
     {
@@ -19,7 +18,6 @@ const quotations = [
         'Women are always carried about like corks upon the waves of masculine desires.',
       source: 'Mrs. Charmond',
       citation: 'The Woodlanders', 
-      year: '',
       tag: 'Classic Lit'
     },
     {
@@ -65,7 +63,6 @@ const quotations = [
       quote: 'In all toil there is profit, but mere talk leads to sheer loss.',
       citation: 'Proverbs 14:23',
       source: 'King Solomon', 
-      year: '',
       tag: 'Classic Lit'
     }
   ];

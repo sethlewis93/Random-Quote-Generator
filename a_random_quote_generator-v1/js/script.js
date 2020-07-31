@@ -10,9 +10,10 @@ project 1 - A Random Quote Generator
 // LIBRARY OF QUOTATIONS
 const quotations = [
   {
-    quote: 'Too many pieces of music finish too long after the end.',
+    quote: 'Too many pieces of music finish long after the end.',
     source: 'Igor Stravinsky',
-    citation: 'Robert Byrne: The 2,548 Best Things Anybody Ever Said', 
+    citation: 'Robert Byrne: The 2,548 Best Things Anybody Ever Said',
+    year: '', 
     tag: 'Musicians'
   },
   {
@@ -26,6 +27,7 @@ const quotations = [
       'Women are always carried about like corks upon the waves of masculine desires.',
     source: 'Mrs. Charmond',
     citation: 'The Woodlanders', 
+    year: '',
     tag: 'Classic Lit'
   },
   {
@@ -38,6 +40,7 @@ const quotations = [
     quote: 'Optimism is an occupational hazard of programming; feedback is the treatment.',
     source: 'Kent Beck',
     citation: 'Extreme Programming Pxplained: Embrace Change', 
+    year: 1999,
     tag: 'Programmers'
   },
   {
@@ -50,6 +53,7 @@ const quotations = [
     quote: 'I studied the humanities to understand logic and programming, and I studied the sciences to understand language and literature.', 
     source: 'David Auerbach', 
     citation: 'Bitwise: A Life in Code', 
+    year: 2017,
     tag: 'Programmers'
   }, 
   {
@@ -61,13 +65,15 @@ const quotations = [
   {
     quote: 'The best way to predict the future is to invent it.', 
     source: 'Alan Kay', 
-    citation: 'Meeting at Xerox PARC, circa 1982', 
+    citation: 'Meeting at Xerox PARC', 
+    year: 1982, 
     tag: 'Programmers'
   }, 
   {
     quote: 'In all toil there is profit, but mere talk leads to sheer loss.',
     citation: 'Proverbs 14:23',
     source: 'King Solomon', 
+    year: '',
     tag: 'Classic Lit'
   }
 ];

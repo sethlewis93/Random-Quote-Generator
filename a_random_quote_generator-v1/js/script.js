@@ -82,10 +82,10 @@ function getRandomQuote() {
   return randNum;
 }; 
 
-const randomValue = () => Math.floor(Math.random() * 256);
+const randomValue = (value) => Math.floor(Math.random() * value);
 
 function randomRGB() {
-  const color = `rgb(${randomValue()}, ${randomValue()}, ${randomValue()})`;
+  const color = `rgb(${randomValue(256)}, ${randomValue(256)}, ${randomValue(256)})`;
   return color;
 }; // code obtained from Guil's "Refactor Code Challenge"
 
@@ -99,7 +99,10 @@ printQuote function then updates the document id "quote-box" with the string aft
 let htmlString;
 function printQuote() {
   let randQuote = getRandomQuote();
-  htmlString = `<div id="quote-box" class="quote-box"><p class="quote">${randQuote.quote}<p class="source"><span>${randQuote.source}`;
+  htmlString = `<p class="quote">${randQuote.quote}</p><p class="source"><span>${randQuote.source}`;
+  // for (key in quotations) {
+  //   htmlString += `<span class="${key}">${randQuote.${key}</span>;}`
+  // }
   if (randQuote.citation) {
     htmlString += `<span class="citation">${randQuote.citation}</span>`; 
   }

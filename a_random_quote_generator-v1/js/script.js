@@ -84,10 +84,11 @@ function getRandomQuote() {
 
 const randomValue = (value) => Math.floor(Math.random() * value);
 
+// code obtained from Guil's "Refactor Code Challenge"
 function randomRGB() {
   const color = `rgb(${randomValue(256)}, ${randomValue(256)}, ${randomValue(256)})`;
   return color;
-}; // code obtained from Guil's "Refactor Code Challenge"
+}; 
 
 /* 
 Declare htmlString variable which will interpolate the quote object properties
@@ -100,9 +101,7 @@ let htmlString;
 function printQuote() {
   let randQuote = getRandomQuote();
   htmlString = `<p class="quote">${randQuote.quote}</p><p class="source"><span>${randQuote.source}`;
-  // for (key in quotations) {
-  //   htmlString += `<span class="${key}">${randQuote.${key}</span>;}`
-  // }
+
   if (randQuote.citation) {
     htmlString += `<span class="citation">${randQuote.citation}</span>`; 
   }
@@ -113,10 +112,12 @@ function printQuote() {
     htmlString += `<span class="tag">${randQuote.tag}</span></p>`;
   }
   document.getElementById("quote-box").innerHTML = htmlString;
-  document.body.style.backgroundColor = randomRGB(); // code obtained from W3C schools
+  // code obtained from W3C schools
+  document.body.style.backgroundColor = randomRGB(); 
 };
 
 // Refreshes the quotes every 10 seconds
+// TO IMPROVE: write code that restricts the interval from beginning if "show quote" button is clicked
 const interval = setInterval(printQuote, 10000);
 
 /***

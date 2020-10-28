@@ -77,47 +77,42 @@ const quotations = [
 
 // Returns a random object from the quotations array of objects
 function getRandomQuote() {
-  let randNum = Math.floor(Math.random() * quotations.length);
-  randNum = quotations[randNum];
-  return randNum;
+  const randomNum = Math.floor(Math.random() * quotations.length);
+  const randomQuote = quotations[randomNum];
+  return randomQuote;
 }; 
 
 const randomValue = (value) => Math.floor(Math.random() * value);
 
-// code obtained from Guil's "Refactor Code Challenge"
 function randomRGB() {
   const color = `rgb(${randomValue(256)}, ${randomValue(256)}, ${randomValue(256)})`;
   return color;
 }; 
 
-/* 
-Declare htmlString variable which will interpolate the quote object properties
-Calls getRandomQuote function, assigns it to a variable to be interpolated by htmlString
-If the quote object has a citation, span with "citation" class is concatenated onto the string
-If the quote object has a year, span with "year" class is concatenated onto the string
-printQuote function then updates the document id "quote-box" with the string after conditionals tested
-*/
+/*** 
+* Declare htmlString variable which will interpolate the quote object properties
+* Calls getRandomQuote function, assigns it to a variable to be interpolated by htmlString
+***/
+
 let htmlString;
 function printQuote() {
-  let randQuote = getRandomQuote();
-  htmlString = `<p class="quote">${randQuote.quote}</p><p class="source"><span>${randQuote.source}`;
+  const randomQuote = getRandomQuote();
+  htmlString = `<p class="quote">${randomQuote.quote}</p><p class="source"><span>${randomQuote.source}`;
 
-  if (randQuote.citation) {
-    htmlString += `<span class="citation">${randQuote.citation}</span>`; 
+  if (randomQuote.citation) {
+    htmlString += `<span class="citation">${randomQuote.citation}</span>`; 
   }
-  if (randQuote.year) {
-    htmlString += `<span class="year">${randQuote.year}</span>`; 
+  if (randomQuote.year) {
+    htmlString += `<span class="year">${randomQuote.year}</span>`; 
   }
-  if (randQuote.tag) {
-    htmlString += `<span class="tag">${randQuote.tag}</span></p>`;
+  if (randomQuote.tag) {
+    htmlString += `<span class="tag">${randomQuote.tag}</span></p>`;
   }
+
   document.getElementById("quote-box").innerHTML = htmlString;
-  // code obtained from W3C schools
   document.body.style.backgroundColor = randomRGB(); 
 };
 
-// Refreshes the quotes every 10 seconds
-// TO IMPROVE: write code that restricts the interval from beginning if "show quote" button is clicked
 const interval = setInterval(printQuote, 10000);
 
 /***

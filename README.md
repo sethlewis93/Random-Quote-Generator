@@ -3,6 +3,7 @@
 ## Summary
 
 A web-based Random Quote Generator written with HTML, CSS, and basic Vanilla JS syntax and patterns.
+The quotes are served from within the project files. The application selects a quotation from the library at random either every 8 seconds or once a user clicks "show another quote".
 
 ## Details
 

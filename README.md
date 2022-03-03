@@ -24,6 +24,5 @@ The quote generator consists of the following:
 ## To use:
 
 1. Download code
-2. Start a live server on local machine
-3. Open index.html in preferred browser
-4. Click "show anohter quote" button to load another quotation or simpy wait 8 seconds for a new quotation to load
+2. Simply open index.html in your preferred browser. JS is loaded via `<script>` tag.
+3. Click "show anohter quote" button to load another quotation or simpy wait 8 seconds for a new quotation to load
